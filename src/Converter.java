@@ -10,7 +10,7 @@ public class Converter {
 
     double distance(int steps) {
         double distanceOll = steps * distanceOneStep / 100000;
-        return distanceOll;
+    return distanceOll;
     }
 
     int caloris(int steps) {

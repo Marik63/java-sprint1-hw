@@ -5,13 +5,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         StepTracker stepTracker = new StepTracker();
-        Converter converter = new Converter(75, 50);
+
 
         printMenu();
         int userInput = scanner.nextInt();
         while (userInput != 0) {
-
-
             if (userInput == 1) {
                 printMonth();
                 System.out.println("Введите месяц от 1 до 12.");
@@ -30,7 +28,6 @@ public class Main {
                 int step = scanner.nextInt();
                 stepTracker.saveStepMonth(month, day, step);
 
-
             } else if (userInput == 2) {
                 System.out.println("Введите номер месяца");
                 int month = scanner.nextInt();
@@ -38,21 +35,12 @@ public class Main {
                     System.out.println("Не верно ввели месяц");
                     break;
                 }
-                System.out.println("Общее количество шагов в месяце - " +
-                        stepTracker.sumStepsManth(month) + " шагов.");
-                System.out.println("Максимальное пройденное количество шагов в месяце - "
-                        + stepTracker.maxStepsManth(month));
-                stepTracker.midleStepsManth(month);
-                int steps = stepTracker.maxStepsManth(month);
-                System.out.println("Пройденная дистанция (в км) " + converter.distance(steps));
-                System.out.println("Количество сожжённых килокалорий - " + converter.caloris(steps));
-                stepTracker.bestToSteps(month);
+                stepTracker.statisticStepsManth(month);
 
             } else if (userInput == 3) {
                 System.out.println("Введите новую цель:");
                 int aim = scanner.nextInt();
                 stepTracker.changeAimToSteps(aim);
-
 
             } else if (userInput == 0) {
                 System.out.println("Программа завершена");
