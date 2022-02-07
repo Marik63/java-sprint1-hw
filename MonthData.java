@@ -1,19 +1,18 @@
-import java.util.HashMap;
-
 public class MonthData {
-    HashMap<Integer, Integer> dayToSteps = new HashMap<>(); //Хранит шаги за каждый день месяца
+
+    int[] daysOfMonth = new int[30];
 
     public MonthData() {
-        for (int i = 0; i <= 30; i++) {
-            dayToSteps.put(i, 0);
+        for (int i = 1; i < daysOfMonth.length; i++) {
+            daysOfMonth[i] = 0;
         }
     }
 
-    public void updateSteps(int day, int steps) { //Получаю шаги за определенный день из StepTracker
-        dayToSteps.put(day, steps);
+    public void updateSteps(int day, int steps) {
+        daysOfMonth[day-1] = steps;
     }
 
     public int getSteps(int day) {
-        return dayToSteps.get(day);
+        return daysOfMonth[day-1];
     }
 }
